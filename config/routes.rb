@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  root to: "politicians#index"
+  root to: "game#start"
 
   resources :politicians do
     resources :quotes
   end
 
-  resources :games
-  resources :questions do
-  end
+  resources :questions
+
+  post"game/check", to: "game#check"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

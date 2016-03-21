@@ -1,9 +1,9 @@
 <h1>Politicians</h1>
 
 <ul>
-  <%= @politicians.each do |politician| %>
+  <% @politicians.each do |politician| %>
     <li>
-      <%= link_to politician.name, politcian %>
+      <%= link_to politician.name, politician %>
     </li>
-    <%= end %>
+    <% end %>
   </ul>

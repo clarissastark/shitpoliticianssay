@@ -2,13 +2,13 @@ class PoliticiansController < ApplicationController
 
   #index
   def index
-    @politician = Politician.find(params[:id])
-    @politcians = Politician.all
+    # @politician = Politician.find(params[:id])
+    @politicians = Politician.all
   end
 
   #new
   def new
-    @politcian = Politician.new
+    @politician = Politician.new
   end
 
   #show
@@ -43,7 +43,7 @@ class PoliticiansController < ApplicationController
   private
 
   def politicians_params
-    params.require(:politician).permit(:name, :party, :state, :office, :photo_url, :reelect_date)
+    params.require(:politician).permit(:name, :party, :state, :current_office, :photo_url, :elect_date, :running_for)
   end
 
 end
