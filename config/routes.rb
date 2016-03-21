@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  root to: "politicians#index"
+
+  resources :politicians do
+    resources :quotes
+  end
+
+  resources :games
+  resources :questions do
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

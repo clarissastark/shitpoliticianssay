@@ -1,0 +1,9 @@
+<h1>Politicians</h1>
+
+<ul>
+  <%= @politicians.each do |politician| %>
+    <li>
+      <%= link_to politician.name, politcian %>
+    </li>
+    <%= end %>
+  </ul>
