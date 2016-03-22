@@ -1,6 +1,6 @@
-<%= @quote.direct_quote %>
 
 <h2><%= @politician.name %></h2>
+<h3><%= @quote.direct_quote %><h3>
 
 <%= form_tag game_check_path do %>
     <%= hidden_field_tag "quote_id", @quote.id %>
@@ -8,7 +8,6 @@
     <%= hidden_field_tag "said_it", true %>
     <%= submit_tag "Said it" %>
   <% end %>
-
 
   <%= form_tag game_check_path do %>
       <%= hidden_field_tag "quote_id", @quote.id %>
