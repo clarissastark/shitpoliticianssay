@@ -4,6 +4,7 @@
   <% @politicians.each do |politician| %>
     <li>
       <%= link_to politician.name, politician %>
+      <%= image_tag politician.photo_url %>
     </li>
     <% end %>
   </ul>

@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   root to: "game#start"
 
-  resources :politicians do
-    resources :quotes
-  end
+  resources :politicians
+  resources :quotes
 
-  resources :questions
 
   post"game/check", to: "game#check"
 

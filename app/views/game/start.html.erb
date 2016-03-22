@@ -3,16 +3,24 @@
 <%= image_tag @politician.photo_url %>
 <h3><%= @quote.direct_quote %><h3>
 
+  <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+
 <%= form_tag game_check_path do %>
     <%= hidden_field_tag "quote_id", @quote.id %>
     <%= hidden_field_tag "politician_id", @politician.id %>
     <%= hidden_field_tag "said_it", true %>
-    <%= submit_tag "Said it" %>
+    <%= submit_tag "#{@quote.politician_id} = #{@politician.id}" %>
   <% end %>
 
   <%= form_tag game_check_path do %>
       <%= hidden_field_tag "quote_id", @quote.id %>
       <%= hidden_field_tag "politician_id", @politician.id %>
-      <%= hidden_field_tag "said_it", false %>
-      <%= submit_tag "Didn't say it" %>
+      <%= hidden_field_tag "didnt_say_it", true %>
+      <%= submit_tag "#{@quote.politician_id} != #{@politician.id}" %>
     <% end %>
+
+
+<%= @quote.politician.inspect %>
+<%= @politician.inspect %>

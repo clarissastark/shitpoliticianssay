@@ -8,5 +8,7 @@
       <%= f.text_field :fact_check_rating %>
       <%= f.label :direct_quote %>
       <%= f.text_area :direct_quote %>
+      <%= f.label :politician_id %>
+      <%= f.select_field :politician_id, options_for_select(Politician.all.map{|s| ["#{s.politician.name}", s.id]})) %>
       <%= f.submit "Add Quote" %>
     <% end %>
