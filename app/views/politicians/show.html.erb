@@ -1,0 +1,6 @@
+
+<div class="politician">
+<h3><%= @politician.name %></h3>
+<p><%= Quote.find_by(params[@politician.id]).direct_quote %></p>
+    <%= image_tag @politician.photo_url %>
+</div>

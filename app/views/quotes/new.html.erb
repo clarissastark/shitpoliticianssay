@@ -1,0 +1,12 @@
+  <h2>Submit a New Quote</h2>
+    <%= form_for @quote do |f| %>
+      <%= f.label :source %>
+      <%= f.text_field :source %>
+      <%= f.label :quote_date %>
+      <%= f.date_select :quote_date %>
+      <%= f.label :fact_check_rating %>
+      <%= f.text_field :fact_check_rating %>
+      <%= f.label :direct_quote %>
+      <%= f.text_area :direct_quote %>
+      <%= f.submit "Add Quote" %>
+    <% end %>

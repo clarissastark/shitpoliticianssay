@@ -1,5 +1,6 @@
 
 <h2><%= @politician.name %></h2>
+<%= image_tag @politician.photo_url %>
 <h3><%= @quote.direct_quote %><h3>
 
 <%= form_tag game_check_path do %>
