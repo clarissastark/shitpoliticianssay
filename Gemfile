@@ -46,4 +46,6 @@ group :development do
   gem 'spring'
 end
 
+ruby '2.2.3'
+
 gem "rails_12factor", group: :production
