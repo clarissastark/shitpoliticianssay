@@ -1,8 +1,8 @@
 <h2>All Quotes</h2>
 <% @quotes.each do |quote| %>
-  <div>
+  <div class="pol_quote">
     <%= link_to quote.direct_quote %> - <%= quote.politician.name %>
-    <%= image_tag quote.politician.photo_url %>
+    <%= image_tag quote.politician.photo_url, class:"pol_img" %>
     <a href="/quotes/<%= quote.id %>">
     </a>
   </div>

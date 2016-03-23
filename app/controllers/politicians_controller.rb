@@ -29,7 +29,7 @@ class PoliticiansController < ApplicationController
 
   #update
   def update
-    @politcian.update(politicians_params)
+    @politician.update(politicians_params)
     redirect_to politician_url(@politician)
   end
 

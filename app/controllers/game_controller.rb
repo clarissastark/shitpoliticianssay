@@ -1,10 +1,8 @@
 class GameController < ApplicationController
 
-
   def start
     @quote = Quote.all.sample
     @politician = Politician.all.sample
-    # @politician = @quote.politician
   end
 
   def check
@@ -29,23 +27,23 @@ class GameController < ApplicationController
       end
     end
 
-    def score_key
-      @@score_key ||= SecureRandom.uuid
-      # session[:user_id] =
-    end
-
-    def get_score
-      if session[:score_key] == score_key
-      @score = session[:score]
-      else
-        0
-      end
-    end
-
-    def save_score score
-      session[:score] = score
-      session[:score_key] = score_key
-    end
+    # def score_key
+    #   @@score_key ||= SecureRandom.uuid
+    #   # session[:user_id] =
+    # end
+    #
+    # def get_score
+    #   if session[:score_key] == score_key
+    #   @score = session[:score]
+    #   else
+    #     0
+    #   end
+    # end
+    #
+    # def save_score score
+    #   session[:score] = score
+    #   session[:score_key] = score_key
+    # end
 
     def start_over
       session[:score] = 0

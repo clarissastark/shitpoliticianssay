@@ -1,16 +1,16 @@
 <h2>Add a Politican</h2>
   <%= form_for @politician do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :party %>
-    <%= f.text_field :party %>
-    <%= f.label :current_office %>
-    <%= f.text_field :current_office %>
-    <%= f.label :running_for %>
-    <%= f.text_field :running_for %>
-    <%= f.label :photo_url %>
-    <%= f.text_field :running_for %>
-    <%= f.label :elect_date %>
-    <%= f.date_select :elect_date %>
+    <p><%= f.label :name, "Full Name: " %>
+    <%= f.text_field :name %></p>
+    <p><%= f.label :party, "Political Party: " %>
+    <%= f.text_field :party %></p>
+    <p><%= f.label :current_office, "Current Office: " %>
+    <%= f.text_field :current_office %></p>
+    <p><%= f.label :running_for, "Running for: " %>
+    <%= f.text_field :running_for %></p>
+    <p><%= f.label :photo_url, "Photo URL: " %>
+    <%= f.text_field :photo_url %></p>
+    <p><%= f.label :elect_date, "Election Date: " %>
+    <%= f.date_select :elect_date %></p>
     <%= f.submit "Add Politician" %>
   <% end %>

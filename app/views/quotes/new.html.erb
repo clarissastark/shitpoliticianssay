@@ -1,14 +1,14 @@
-  <h2>Submit a New Quote</h2>
-    <%= form_for @quote do |f| %>
-      <%= f.label :source %>
-      <%= f.text_field :source %>
-      <%= f.label :quote_date %>
-      <%= f.date_select :quote_date %>
-      <%= f.label :fact_check_rating %>
-      <%= f.text_field :fact_check_rating %>
-      <%= f.label :direct_quote %>
-      <%= f.text_area :direct_quote %>
-      <%= f.label :politician_id %>
-      <%= f.select_field :politician_id, options_for_select(Politician.all.map{|s| ["#{s.politician.name}", s.id]})) %>
-      <%= f.submit "Add Quote" %>
-    <% end %>
+<h2>Submit a New Quote</h2>
+<%= form_for @quote do |f| %>
+  <p><%= f.label :politician_id, "Politician: " %>
+  <%= f.collection_select :politician_id, Politician.all, :id, :name %></p>
+  <p><%= f.label :direct_quote, "Direct Quote: " %>
+  <%= f.text_area :direct_quote %></p>
+  <p><%= f.label :source, "Source URL: " %>
+  <%= f.text_field :source %></p>
+  <p><%= f.label :quote_date, "Quote Date: " %>
+        <%= f.date_select :quote_date %></p>
+        <p><%= f.label :fact_check_rating, "Politifact Rating: " %>
+          <%= f.text_field :fact_check_rating %></p>
+          <%= f.submit "Add Quote" %>
+<% end %>
