@@ -42,16 +42,16 @@ class QuotesController < ApplicationController
 
   def upvote
   @quote = Quote.find(params[:id])
-  @quote.up_vote
+  @quote.votes.create
   flash[:message] = 'Thanks for voting!'
-  redirect_to(topics_path)
+  redirect_to(quotes_url)
   end
 
-  def downvote
+  def unvote
   @quote = Quote.find(params[:id])
-  @quote.down_vote
+  @quote.votes.first.destroy
   flash[:message] = 'Thanks for voting!'
-  redirect_to(topics_path)
+  redirect_to(quotes_url)
   end
 
   private

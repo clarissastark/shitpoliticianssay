@@ -1,6 +1,8 @@
 <div class="quote">
 <h3><%= @quote.politician.name %></h3>
 <p><%= @quote.direct_quote %></p>
-  <!-- <img src="<%= @politician.photo_url %>" alt="<%= @politician.name %>"/> -->
-  <%= image_tag @politician.photo_url, class:"pol_img" %>
+<% binding.pry %>
+  <%= image_tag quote.politician_id.photo_url, class:"pol_img" %>
 </div>
+
+<h4><%= link_to "(update this quote)", edit_politician_path %></h4>

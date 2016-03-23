@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   resources :politicians
   resources :quotes do
-    post :upvote
-    post :unvote
+    post 'upvote'
+    post 'unvote'
   end
 
   resource :session
