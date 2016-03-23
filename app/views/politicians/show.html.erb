@@ -3,4 +3,10 @@
 <h3><%= @politician.name %></h3>
 <p><%= Quote.find_by(params[@politician.id]).direct_quote %></p>
     <%= image_tag @politician.photo_url %>
+    <p>Current Office: <%= @politician.current_office %> from <%= @politician.state %></p>
+    <p>Election Date: <%= @politician.elect_date %><%= @politician.running_for %></p>
+
+
 </div>
+
+<h4><%= link_to "(update #{@politician.name}'s profile)", edit_politician_path %></h4>

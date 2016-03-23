@@ -2,9 +2,15 @@ Rails.application.routes.draw do
   root to: "game#start"
 
   resources :politicians
-  resources :quotes
+  resources :quotes do
+    post :upvote
+    post :unvote
+  end
+
+  resource :session
 
   post"game/check", to: "game#check"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

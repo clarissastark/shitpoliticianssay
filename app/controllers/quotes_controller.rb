@@ -40,6 +40,20 @@ class QuotesController < ApplicationController
     redirect_to quotes_url
   end
 
+  def upvote
+  @quote = Quote.find(params[:id])
+  @quote.up_vote
+  flash[:message] = 'Thanks for voting!'
+  redirect_to(topics_path)
+  end
+
+  def downvote
+  @quote = Quote.find(params[:id])
+  @quote.down_vote
+  flash[:message] = 'Thanks for voting!'
+  redirect_to(topics_path)
+  end
+
   private
 
   def quotes_params
