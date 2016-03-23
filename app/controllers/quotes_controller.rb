@@ -3,7 +3,7 @@ class QuotesController < ApplicationController
   #index
   def index
     @quotes = Quote.all
-    @quote = Quote.find(params[:id])
+    # @quote = Quote.find(params[:id])
   end
 
   #new

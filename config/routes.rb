@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :politicians
   resources :quotes
 
-
   post"game/check", to: "game#check"
 
 

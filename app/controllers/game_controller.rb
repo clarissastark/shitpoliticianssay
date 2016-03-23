@@ -16,7 +16,7 @@ class GameController < ApplicationController
         flash[:notice] = "Wrong! It was #{@quote.politician.name} who said '#{@quote.direct_quote}.' Politifact rated this quote as '#{@quote.fact_check_rating}'."
       end
       redirect_to :back
-    elsif params[:didnt_say_it]
+    else
       if @quote.politician_id != @politician.id
         flash[:notice] = "Correct! #{@politician.name} didn't say it – it was #{@quote.politician.name} who said #{@quote.direct_quote}. Politifact rated this quote as '#{@quote.fact_check_rating}'."
       else
