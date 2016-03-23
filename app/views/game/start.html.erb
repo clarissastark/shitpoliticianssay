@@ -25,4 +25,4 @@
       <%= submit_tag "#{@quote.politician_id} != #{@politician.id}" %>
     <% end %>
 
-<p>Score: <% session[:score] %></p>
+<p>Score: <%= session[:score].inspect %></p>
