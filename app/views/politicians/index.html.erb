@@ -1,10 +1,16 @@
 <h1>Politicians</h1>
 
-<ul>
+<div class="media">
   <% @politicians.each do |politician| %>
-    <li>
-      <%= link_to politician.name, politician %>
-      <%= image_tag politician.photo_url %>
-    </li>
+      <div class="media-left media-top">
+        <%= image_tag politician.photo_url, class:"media-object"  %>
+      </div>
+      <div class="media-body">
+      <h4 class="media-heading"><%= link_to politician.name, politician %></h4>
+      <p><%= politician.party %><br />
+      <%= politician.current_office %><br />
+      <%= politician.running_for %><br />
+      <%= politician.elect_date %></p>
+    </div>
     <% end %>
-  </ul>
+  </div>

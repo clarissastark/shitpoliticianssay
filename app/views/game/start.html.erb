@@ -1,28 +1,37 @@
+<div class="jumbotron">
+  <div class="container">
+    <h2>He Said / She Said What?! Quiz</h2>
+    <p>Think you know the shit America's leading politicians <em>actually</em> say? Decide whether the politican and quote below go together to test your politicial know-how. You'll also find out who's totally bullshitting We The People – and who's not. </p>
 
-<h1>He Said / She Said What?! Quiz</h1>
-  <p>Think you know the shit America's leading politicians <em>actually</em> say? Decide whether the politican and quote below go together to test your politicial know-how. You'll also find out who's totally bullshitting We The People – and who's not. </p>
+    <h3><strong>Score:<strong> <%= session[:score].inspect %></h3>
 
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
+    <h3><% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %></h3>
 
-<h2><%= @politician.name %></h2>
-<%= image_tag @politician.photo_url %>
-<h3><%= @quote.direct_quote %><h3>
+    <h3><%= @politician.name %></h3>
+    <%= image_tag @politician.photo_url %>
+    <h4><%= @quote.direct_quote %><h4>
 
+ <div class="btn_left">
+      <%= form_tag game_check_path do %>
+      <%= hidden_field_tag "quote_id", @quote.id %>
+      <%= hidden_field_tag "politician_id", @politician.id %>
+      <%= hidden_field_tag "said_it", true %>
+      <%= submit_tag "#{@quote.politician_id} = #{@politician.id}", class: "btn btn-primary btn-lg" %>
+      <% end %>
+</div>
 
-<%= form_tag game_check_path do %>
-    <%= hidden_field_tag "quote_id", @quote.id %>
-    <%= hidden_field_tag "politician_id", @politician.id %>
-    <%= hidden_field_tag "said_it", true %>
-    <%= submit_tag "#{@quote.politician_id} = #{@politician.id}" %>
-  <% end %>
-
-  <%= form_tag game_check_path do %>
+<div class="btn_right">
+      <%= form_tag game_check_path do %>
       <%= hidden_field_tag "quote_id", @quote.id %>
       <%= hidden_field_tag "politician_id", @politician.id %>
       <%= hidden_field_tag "didnt_say_it", true %>
-      <%= submit_tag "#{@quote.politician_id} != #{@politician.id}" %>
-    <% end %>
+      <%= submit_tag "#{@quote.politician_id} != #{@politician.id}", class: "btn btn-primary btn-lg" %>
+      <% end %>
+</div>
 
-<p>Score: <%= session[:score].inspect %></p>
+
+    </div>
+  </div>
+  <h3><%= link_to game_new_path %></h3>

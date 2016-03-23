@@ -40,6 +40,7 @@ class QuotesController < ApplicationController
     redirect_to quotes_url
   end
 
+  #post
   def upvote
   @quote = Quote.find(params[:id])
   @quote.votes.create
@@ -47,6 +48,7 @@ class QuotesController < ApplicationController
   redirect_to(quotes_url)
   end
 
+  #post
   def unvote
   @quote = Quote.find(params[:id])
   @quote.votes.first.destroy

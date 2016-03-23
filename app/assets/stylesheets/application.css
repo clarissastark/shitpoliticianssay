@@ -1,11 +1,16 @@
-div.pol_quote {
-  
+h2.heading {
+  margin-left: 20px;
 }
 
-img.pol_img {
+div.btn_left {
   float: left;
+  margin-right: 20px;
 }
 
+div.btn_right {
+  float: left;
+  margin-left: 20px;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

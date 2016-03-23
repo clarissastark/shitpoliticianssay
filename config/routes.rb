@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   post"game/check", to: "game#check"
 
+  post"game/new", to: "game#start_over"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

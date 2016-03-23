@@ -1,14 +1,38 @@
-<h2>Submit a New Quote</h2>
-<%= form_for @quote do |f| %>
-  <p><%= f.label :politician_id, "Politician: " %>
-  <%= f.collection_select :politician_id, Politician.all, :id, :name %></p>
-  <p><%= f.label :direct_quote, "Direct Quote: " %>
-  <%= f.text_area :direct_quote %></p>
-  <p><%= f.label :source, "Source URL: " %>
-  <%= f.text_field :source %></p>
-  <p><%= f.label :quote_date, "Quote Date: " %>
-        <%= f.date_select :quote_date %></p>
-        <p><%= f.label :fact_check_rating, "Politifact Rating: " %>
-          <%= f.text_field :fact_check_rating %></p>
-          <%= f.submit "Add Quote" %>
-<% end %>
+<h2 class="heading">Submit a New Quote</h2>
+<%= form_for @quote, :html => {:class => "form-horizontal"} do |f| %>
+<div class="form-group">
+  <p><%= f.label :politician_id, "Politician: ", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.collection_select :politician_id, Politician.all, :id, :name, class: "form-control", :required => true %></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <p><%= f.label :direct_quote, "Direct Quote: ", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_area :direct_quote, :required => true, class: "form-control" %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <p><%= f.label :source, "Source URL: ", class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= f.text_field :source, :required => true, class: "form-control" %></p>
+        </div>
+      </div>
+      <div class="form-group">
+        <p><%= f.label :quote_date, "Quote Date: ", class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= f.date_select :quote_date, :required => true, class: "form-control" %></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <p><%= f.label :fact_check_rating, "Politifact Rating: ", class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.text_field :fact_check_rating, :required => true, class: "form-control" %></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <%= f.submit "Add Quote", class: "btn btn-default btn-primary" %>
+            </div>
+          </div>
+          <% end %>
