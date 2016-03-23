@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   resources :politicians
   resources :quotes do
-    post 'upvote'
-    post 'unvote'
+    member do
+      patch 'upvote'
+      patch 'unvote'
+    end
   end
 
   resource :session
