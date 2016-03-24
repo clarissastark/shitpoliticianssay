@@ -1,16 +1,44 @@
 <h2>Edit Politican</h2>
-  <%= form_for @politician do |f| %>
-    <p><%= f.label :name %>
-    <%= f.text_field :name %></p>
-    <p><%= f.label :party %>
-    <%= f.text_field :party %></p>
-    <p><%= f.label :current_office %>
-    <%= f.text_field :current_office %></p>
-    <p><%= f.label :running_for %>
-    <%= f.text_field :running_for %></p>
-    <p><%= f.label :photo_url %>
-    <%= f.text_field :photo_url %></p>
-    <p><%= f.label :elect_date %>
-    <%= f.date_select :elect_date %></p>
-    <%= f.submit "Update Politician" %>
-  <% end %>
+<%= form_for @politician, :html => {:class => "form-horizontal center"} do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Full Name: ", class: "col-sm-2 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :party, "Political Party: ", class: "col-sm-2 control-label"  %>
+    <div class="col-md-8">
+      <%= f.text_field :party, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :current_office, "Current Office: ", class: "col-sm-2 control-label"  %>
+    <div class="col-md-8">
+      <%= f.text_field :current_office %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :running_for, "Running for: ", class: "col-sm-2 control-label"  %>
+    <div class="col-md-8">
+      <%= f.text_field :running_for %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :photo_url, "Photo URL: ", class: "col-sm-2 control-label"  %>
+    <div class="col-md-8">
+      <%= f.text_field :photo_url %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :elect_date, "Election Date: ", class: "col-sm-2 control-label"  %>
+    <div class="col-md-8">
+      <%= f.date_select :elect_date, order: [:month, :day, :year] %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Update Politician", class: "btn btn-default btn-primary"  %>
+    </div>
+  </div>
+<% end %>

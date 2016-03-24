@@ -1,18 +1,17 @@
 <h2>All Quotes</h2>
 <% @quotes.each do |quote| %>
 <div class="media">
-  <div class="media-left">
-    <%= image_tag quote.politician.photo_url, class:"media-left top" %>
+  <div class="media-left media-middle">
+    <h4><%= pluralize(quote.votes.count, "vote") %></h4>
+    <%= button_to 'LOVE it', upvote_quote_path(quote), method: :patch, class:"btn btn-success" %>
+    <%= button_to 'HATE it', unvote_quote_path(quote), method: :patch, class:"btn btn-danger" %>
   </div>
   <div class="media-body">
-    <h4 class="media-heading">
-      <%= quote.politician.name %>
-    </div>
-    <%= link_to quote.direct_quote, quote %>
-    <%= button_to "LOVE it", upvote_quote_path(quote), method: :patch %>
-    <%= button_to "HATE it", unvote_quote_path(quote), method: :patch %>
-    <%= pluralize(quote.votes.count, "vote") %>
-    <td><%= link_to 'Show', quote %></td>
-    <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+    <h4 class="media-heading"><%= quote.politician.name %></h4>
+    <%= image_tag quote.politician.photo_url, class:"media-left top" %>
+    <h5>"<%= quote.direct_quote %>"</h5>
+    <td><%= link_to 'More Info', quote %> |</td>
+    <td><%= link_to 'Edit Quote', edit_quote_path(quote) %></td>
+  </div>
   </div>
 <% end %>
