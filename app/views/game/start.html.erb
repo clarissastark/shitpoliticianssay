@@ -3,7 +3,8 @@
     <h2>He Said / She Said What?! Quiz</h2>
     <p>Think you know the shit America's leading politicians <em>actually</em> say? Decide whether the politican and quote below go together to test your politicial know-how. You'll also find out who's totally bullshitting We The People – and who's not. </p>
 
-    <h3><strong>Score:<strong> <%= session[:score].inspect %></h3>
+    <h3><strong>Score: <strong> <%= session[:score].inspect %> out of <%= link_to "Start a new game", game_start_path, method: :post, class: "btn btn-primary btn-lg" %></button></h3>
+
 
     <h3><% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
@@ -34,4 +35,3 @@
 
     </div>
   </div>
-  <h3><%= link_to "Start a new game", game_new_path %></h3>

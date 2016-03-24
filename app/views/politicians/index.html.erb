@@ -1,16 +1,24 @@
-<h1>Politicians</h1>
+<h2>Politicians</h2>
+<div class="container-fluid">
+  <div class="media">
+    <div class="row">
 
-<div class="media">
-  <% @politicians.each do |politician| %>
-      <div class="media-left media-top">
-        <%= image_tag politician.photo_url, class:"media-object"  %>
-      </div>
-      <div class="media-body">
-      <h4 class="media-heading"><%= link_to politician.name, politician %></h4>
-      <p><%= politician.party %><br />
-      <%= politician.current_office %><br />
-      <%= politician.running_for %><br />
-      <%= politician.elect_date %></p>
+    <% @politicians.each do |politician| %>
+    <div class="col-xs-7 col-md-5">
+    <div class="media-left media-top">
+      <%= image_tag politician.photo_url, class:"media-object"  %>
     </div>
+    <div class="media-body">
+    <h4 class="media-heading"><%= link_to politician.name, politician %></h4>
+
+  <p><strong>Party:</strong> <%= politician.party %><br />
+    <strong>Current Office:</strong> <%= politician.current_office %><br />
+    <strong>Running For:</strong> <%= politician.running_for %><br />
+    <strong>Election Date:</strong><%= politician.elect_date %></p>
+  </div>
+</div>
+
     <% end %>
   </div>
+  </div>
+</div>

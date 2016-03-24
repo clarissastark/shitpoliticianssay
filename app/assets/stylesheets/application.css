@@ -12,6 +12,21 @@ div.btn_right {
   margin-left: 20px;
 }
 
+.score {
+  position: absolute;
+  top: 0;
+  border-radius: $radius*.1;
+  margin: $size*.25;
+  background: $bg;
+  width: $size*.5;
+  font-size: $size*.25;
+  font-weight: bold;
+  line-height: $size*.5;
+  text-align: center;
+  box-shadow: 0 0 0 $border-width $bg;
+  pointer-events: none;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

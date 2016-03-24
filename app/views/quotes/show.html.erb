@@ -1,16 +1,18 @@
 <div class="jumbotron">
-  <div class="media-left media-top">
-    <%= image_tag @quote.politician.photo_url, class:"media-object" %>
-  </div>
-  <div class="media-body">
-    <h3 class="media-heading"><strong><%= @quote.politician.name %></strong></h3>
-    <p>"<%= @quote.direct_quote %>"</p>
-    <%= button_to 'LOVE it', upvote_quote_path(@quote), method: :post %>
-    <%= button_to 'HATE it', unvote_quote_path(@quote), method: :patch %>
-    <p><strong>Politifact Rating:</strong> <%= @quote.fact_check_rating %><br />
-      <strong>Source:</strong> <%= @quote.source %><br />
-      <strong>Quote Date:</strong> <%= @quote.quote_date %></p>
-
-      <h4><%= link_to "(update this quote)", edit_quote_path %></h4>
+  <div class="media">
+    <div class="media-left media-middle">
+      <h4><%= pluralize(@quote.votes.count, "vote") %></h4>
+      <%= button_to 'LOVE it', upvote_quote_path(@quote), method: :patch, class:"btn btn-success" %>
+      <%= button_to 'HATE it', unvote_quote_path(@quote), method: :patch, class:"btn btn-danger" %>
+    </div>
+    <div class="media-body">
+      <%= image_tag @quote.politician.photo_url, class:"media-object" %>
+      <h3 class="media-heading"><strong><%= @quote.politician.name %></strong></h3>
+      <h4>"<%= @quote.direct_quote %>"</h4>
+      <p><strong>Politifact Rating:</strong> <%= @quote.fact_check_rating %><br />
+        <strong>Source:</strong> <%= @quote.source %><br />
+        <strong>Quote Date:</strong> <%= @quote.quote_date %></p>
+        <td><%= link_to "Edit Quote", edit_quote_path(@quote) %></td>
+      </div>
     </div>
   </div>
