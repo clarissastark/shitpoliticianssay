@@ -3,7 +3,7 @@
     <h2>He Said / She Said What?! Quiz</h2>
     <p>Think you know the shit America's leading politicians <em>actually</em> say? Decide whether the politican and quote below go together to test your politicial know-how. You'll also find out who's totally bullshitting We The People – and who's not. </p>
 
-    <h3><strong>Score: <strong> <%= session[:score].inspect %> out of <%= link_to "Start a new game", game_start_path, method: :post, class: "btn btn-primary btn-lg" %></button></h3>
+    <h3><strong>Score: <strong> <%= session[:score].inspect %> out of <%= session[:count].inspect %> <%= link_to "Start a new game", game_start_path, method: :post, class: "btn btn-primary btn-lg" %></button></h3>
 
 
     <h3><% flash.each do |key, value| %>
@@ -19,7 +19,8 @@
       <%= hidden_field_tag "quote_id", @quote.id %>
       <%= hidden_field_tag "politician_id", @politician.id %>
       <%= hidden_field_tag "said_it", true %>
-      <%= submit_tag "#{@quote.politician_id} = #{@politician.id}", class: "btn btn-primary btn-lg" %>
+      <%= hidden_field_tag "said_it", true %>
+      <%= submit_tag "Said it!", class: "btn btn-primary btn-lg" %>
       <% end %>
 </div>
 
@@ -28,7 +29,7 @@
       <%= hidden_field_tag "quote_id", @quote.id %>
       <%= hidden_field_tag "politician_id", @politician.id %>
       <%= hidden_field_tag "didnt_say_it", true %>
-      <%= submit_tag "#{@quote.politician_id} != #{@politician.id}", class: "btn btn-primary btn-lg" %>
+      <%= submit_tag "Didn't say it!", class: "btn btn-primary btn-lg" %>
       <% end %>
 </div>
 
